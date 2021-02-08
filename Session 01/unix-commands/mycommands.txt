@@ -1,0 +1,61 @@
+mkdir good_place
+
+touch to_be_deleted.txt
+
+rm to_be_deleted.txt
+
+mv ex1.acc ex1.dat orphans.sp good_place/
+ls
+
+cp ex1.acc myfile.acc
+
+cat ex1.acc 
+cat myfile.acc 
+
+cp ex1.dat myfile.acc
+
+cat myfile.acc
+
+rm myfile.acc
+
+mkdir test
+mv * test/  
+
+mkdir data
+mv test/* data/
+
+rm -d test
+
+cd data
+ls
+
+cd ..
+
+mkdir newtest
+mkdir newtest/newtest
+mkdir newtest/newtest/newtest
+
+mv data newtest/newtest/newtest
+
+cd newtest/newtest/newtest/data
+ls
+
+cp * ../../../../  
+cd ../../../../
+ls
+
+rm -r newtest
+
+wc -l < ex1.acc
+wc -l < ex1.dat
+
+cat ex1.acc ex1.dat > ex1.tot
+cat ex1.tot
+
+paste ex1.acc ex1.dat > ex1.tot
+cat ex1.tot
+
+cut -f1,5 ex1.tot | paste > ex1.res
+cat ex1.res
+
+sort -r -k 2 ex1.res | head -n 3
