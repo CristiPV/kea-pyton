@@ -7,7 +7,7 @@ class Bank:
 
     def print_account_list( self ):
         for account in self.account_list:
-            print( 'Customer: ', account.customer.__dict__, '\nBalance: ', account.balance )
+            print( account )
 
 class Account:
     def __init__( self, *args ):
@@ -15,6 +15,12 @@ class Account:
             self.customer = args[0]
         if len( args ) >= 2:
             self.balance = args[1]
+    
+    def __repr__( self ):
+        return str( self.__dict__ )
+
+    def __str__( self ):
+        return str( self.__dict__ )
 
 
 class Customer:
@@ -26,14 +32,25 @@ class Customer:
         if len( args ) >= 3:
             self.gender = args[2]
 
+    def __repr__( self ):
+        return str( self.__dict__ )
+
+    def __str__( self ):
+        return str( self.__dict__ )
+
+
 c1 = Customer( 'Claus', 32, 'male' )
 c2 = Customer( 'Alex', 27, 'unknown' )
 c3 = Customer( 'Cristi', 20 )
 c4 = Customer( 'Jan' )
 
+print( c1 )
+
 a1 = Account( c1, 200 )
 a2 = Account( c2, 300 )
 a3 = Account( c3, 300 )
+
+print( a1 )
 
 b1 = Bank( [a1, a2] )
 
